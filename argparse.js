@@ -1,5 +1,7 @@
+#!/usr/bin/env node
+
 "use strict";
-// Useage: argparse --whiches arguments -doer="we" matcher
+// Useage: ./argparse --whiches arguments -doer="we" matcher
 
 var args = process.argv.slice(2);
 
