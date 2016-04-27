@@ -32,7 +32,11 @@ end
 class Program
 	def initialize(pasable_command_object)
 		pasable_command_object.each do |command_name, command_data|
-			self.method(command_name).call(command_data)
+			if Program.method_defined? command_name
+				self.method(command_name).call(command_data)
+			else
+				puts 'invalid command'
+			end
 		end
 	end
 
@@ -62,5 +66,7 @@ end
 parser = Argparser.new
 
 pasable_command_object = parser.parse(command)
+
+puts pasable_command_object
 
 run_program = Program.new(pasable_command_object)
